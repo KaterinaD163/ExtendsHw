@@ -1,12 +1,15 @@
 import java.util.Objects;
 
-public class Herbivores extends Mammals {
+public class Herbivore extends Mammal {
     private String typeOfFood;
 
-    public Herbivores(String name, int age, String livingEnvironment, int movementSpeed, String typeOfFood) {
+    public Herbivore(String name, int age, String livingEnvironment, int movementSpeed, String typeOfFood) {
         super(name, age, livingEnvironment, movementSpeed);
         this.typeOfFood = typeOfFood;
-        if (!typeOfFood.isEmpty() && !typeOfFood.isBlank()) {
+    }
+
+    public void printHerbivore() {
+        if (!typeOfFood.isBlank()) {
             System.out.println("Травоядное - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
                     ", скорость передвижения " + getMovementSpeed() + " км/ч, тип пищи - " + typeOfFood);
         } else {
@@ -34,11 +37,6 @@ public class Herbivores extends Mammals {
     }
 
     @Override
-    public void sleep() {
-        super.sleep();
-    }
-
-    @Override
     public void walk() {
         System.out.println("Передвигается по суше");
     }
@@ -48,7 +46,7 @@ public class Herbivores extends Mammals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Herbivores that = (Herbivores) o;
+        Herbivore that = (Herbivore) o;
         return Objects.equals(typeOfFood, that.typeOfFood);
     }
 

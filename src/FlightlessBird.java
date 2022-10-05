@@ -1,12 +1,15 @@
 import java.util.Objects;
 
-public class FlightlessBirds extends Birds {
+public class FlightlessBird extends Bird {
     private String typeOfMovement;
 
-    public FlightlessBirds(String name, int age, String livingEnvironment, String typeOfMovement) {
+    public FlightlessBird(String name, int age, String livingEnvironment, String typeOfMovement) {
         super(name, age, livingEnvironment);
         this.typeOfMovement = typeOfMovement;
-        if (!typeOfMovement.isEmpty() && !typeOfMovement.isBlank()) {
+    }
+
+    public void printFlightlessBird() {
+        if (typeOfMovement.isBlank()) {
             System.out.println("Нелетающие птицы - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
                     ", тип передвижения - " + typeOfMovement);
         } else {
@@ -18,11 +21,6 @@ public class FlightlessBirds extends Birds {
     @Override
     public void eat() {
         System.out.println("Питается травой, побегами деревьв и кустарниками, насекомыми и мелкими позвоночными");
-    }
-
-    @Override
-    public void sleep() {
-        super.sleep();
     }
 
     @Override
@@ -48,13 +46,13 @@ public class FlightlessBirds extends Birds {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        FlightlessBirds that = (FlightlessBirds) o;
+        FlightlessBird that = (FlightlessBird) o;
         return Objects.equals(typeOfMovement, that.typeOfMovement);
     }
 
     @Override
     public String toString() {
-        return "FlightlessBirds{" +
+        return "FlightlessBird{" +
                 "typeOfMovement='" + typeOfMovement + '\'' +
                 '}';
     }

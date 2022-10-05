@@ -1,28 +1,28 @@
 import java.util.Objects;
 
-public abstract class Animals {
+public abstract class Animal {
     private String name;
     private int age;
     private String livingEnvironment;
 
-    public Animals(String name, int age, String livingEnvironment) {
+    public Animal(String name, int age, String livingEnvironment) {
         this.name = name;
         this.age = age;
         this.livingEnvironment = livingEnvironment;
-        if (!name.isEmpty() && !name.isBlank()) {
+        if (!name.isBlank()) {
             this.name = name;
         } else {
-            System.out.println("Информация не указана");
+            this.name = " (информация не указана)";
         }
-        if (age != 0) {
-            this.age = age;
+        if (age <= 0) {
+            this.age = 0;
         } else {
-            System.out.println("Информация не указана");
+            this.age = age;
         }
-        if (!livingEnvironment.isEmpty() && !livingEnvironment.isBlank()) {
+        if (!livingEnvironment.isBlank()) {
             this.livingEnvironment = livingEnvironment;
         } else {
-            System.out.println("Информация не указана");
+            this.livingEnvironment = " (информация не указана)";
         }
     }
 
@@ -48,7 +48,7 @@ public abstract class Animals {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Animals animals = (Animals) o;
+        Animal animals = (Animal) o;
         return age == animals.age && Objects.equals(name, animals.name) && Objects.equals(livingEnvironment, animals.livingEnvironment);
     }
 }

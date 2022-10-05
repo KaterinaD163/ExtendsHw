@@ -1,5 +1,5 @@
-public abstract class Birds extends Animals {
-    public Birds(String name, int age, String livingEnvironment) {
+public abstract class Bird extends Animal {
+    public Bird(String name, int age, String livingEnvironment) {
         super(name, age, livingEnvironment);
     }
 

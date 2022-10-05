@@ -1,6 +1,9 @@
-public class Amphibians extends Animals {
-    public Amphibians(String name, int age, String livingEnvironment) {
+public class Amphibian extends Animal {
+    public Amphibian(String name, int age, String livingEnvironment) {
         super(name, age, livingEnvironment);
+    }
+
+    public void printAmphibian() {
         System.out.println("Земноводное - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment());
     }
 

@@ -1,31 +1,26 @@
 import java.util.Objects;
 
-public class FlyingBirds extends Birds {
+public class FlyingBird extends Bird {
     private String typeOfMovement;
 
-    public FlyingBirds(String name, int age, String livingEnvironment, String typeOfMovement) {
+    public FlyingBird(String name, int age, String livingEnvironment, String typeOfMovement) {
         super(name, age, livingEnvironment);
         this.typeOfMovement = typeOfMovement;
-        this.typeOfMovement = typeOfMovement;
-        if (!typeOfMovement.isEmpty() && !typeOfMovement.isBlank()) {
-            System.out.println("Летающие птицы - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
-                    ", тип передвижения - " + typeOfMovement);
-        } else {
-            System.out.println("Летающие птицы - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
-                    ", тип передвижения - (информация не указана)");
-        }
-    }
 
+    }
+public void printFlyingBird() {
+    if (typeOfMovement.isBlank()) {
+        System.out.println("Летающие птицы - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
+                ", тип передвижения - " + typeOfMovement);
+    } else {
+        System.out.println("Летающие птицы - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
+                ", тип передвижения - (информация не указана)");
+    }
+}
     @Override
     public void eat() {
         System.out.println("Питается всевозможными насекомыми и другими беспозвоночными,семенами, плодами,рыбой, грызунами");
     }
-
-    @Override
-    public void sleep() {
-        super.sleep();
-    }
-
     @Override
     public void go() {
         System.out.println("Перемещается в воздушной среде");
@@ -49,7 +44,7 @@ public class FlyingBirds extends Birds {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        FlyingBirds that = (FlyingBirds) o;
+        FlyingBird that = (FlyingBird) o;
         return Objects.equals(typeOfMovement, that.typeOfMovement);
     }
 

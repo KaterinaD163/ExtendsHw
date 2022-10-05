@@ -1,12 +1,15 @@
 import java.util.Objects;
 
-public class Predators extends Mammals {
+public class Predator extends Mammal {
     private String typeOfFood;
 
-    public Predators(String name, int age, String livingEnvironment, int movementSpeed, String typeOfFood) {
+    public Predator(String name, int age, String livingEnvironment, int movementSpeed, String typeOfFood) {
         super(name, age, livingEnvironment, movementSpeed);
         this.typeOfFood = typeOfFood;
-        if (!typeOfFood.isEmpty() && !typeOfFood.isBlank()) {
+    }
+
+    public void printPredator() {
+        if (!typeOfFood.isBlank()) {
             System.out.println("Хищник - " + getName() + ", срок жизни " + getAge() + " лет, среда обитания - " + getLivingEnvironment() +
                     ", скорость передвижения " + getMovementSpeed() + " км/ч, тип пищи - " + typeOfFood);
         } else {
@@ -39,22 +42,17 @@ public class Predators extends Mammals {
     }
 
     @Override
-    public void sleep() {
-        super.sleep();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Predators predators = (Predators) o;
-        return Objects.equals(typeOfFood, predators.typeOfFood);
+        Predator predator = (Predator) o;
+        return Objects.equals(typeOfFood, predator.typeOfFood);
     }
 
     @Override
     public String toString() {
-        return "Predators{" +
+        return "Predator{" +
                 "typeOfFood='" + typeOfFood + '\'' +
                 '}';
     }
