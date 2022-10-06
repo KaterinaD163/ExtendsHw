@@ -1,29 +1,24 @@
 public abstract class Transport {
-    private final String brand;
-    private final String model;
-    private final int productionYear;
-    private final String productionCountry;
-    private String color;
-    private double maxSpeed;
+    public String brand;
+    public String model;
+    private int productionYear;
+    private String productionCountry;
+    public String color;
+    public double maxSpeed;
+    public String typeOfFuel;
 
 
-    public Transport(String brand, String model, int productionYear, String productionCountry, String color, double maxSpeed) {
+    public Transport(String brand, String model, int productionYear, String productionCountry, String color, double maxSpeed, String typeOfFuel) {
         this.brand = brand;
         this.model = model;
         this.productionYear = productionYear;
         this.productionCountry = productionCountry;
         this.color = color;
         this.maxSpeed = maxSpeed;
-        if (!color.isEmpty() && !color.isBlank()) {
-            this.color = color;
-        } else {
-            System.out.println(" (Цвет не указан)");
-        }
-        if (maxSpeed != 0) {
-            this.maxSpeed = maxSpeed;
-        } else {
-            System.out.println(" (Информация о скорости не указана");
-        }
+        this.typeOfFuel = typeOfFuel;
+        setColor(color);
+        setMaxSpeed(maxSpeed);
+
     }
 
     public String getBrand() {
@@ -50,18 +45,33 @@ public abstract class Transport {
         return maxSpeed;
     }
 
+    public String getTypeOfFuel() {
+        return typeOfFuel;
+    }
+
+    public void setTypeOfFuel(String typeOfFuel) {
+        this.typeOfFuel = typeOfFuel;
+    }
+
     public void setColor(String color) {
-        this.color = color;
+        if (color.isBlank()) {
+            System.out.println(" (Цвет не указан)");
+        } else {
+            this.color = color;
+        }
     }
 
     public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed != 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.out.println(" (Информация о скорости не указана");
+        }
     }
 
-    public abstract void refill1();
 
-    public abstract void refill2();
-    public abstract void refill3();
+    public abstract void refill();
+
     }
 
 
